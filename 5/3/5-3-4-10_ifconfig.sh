@@ -1,0 +1,1 @@
+ifconfig | grep netmask
