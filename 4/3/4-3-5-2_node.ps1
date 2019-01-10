@@ -1,0 +1,2 @@
+node -v
+npm -v

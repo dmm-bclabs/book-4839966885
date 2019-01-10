@@ -1,0 +1,3 @@
+brew doctor
+
+brew --version
