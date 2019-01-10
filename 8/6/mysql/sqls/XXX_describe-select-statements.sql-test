@@ -1,0 +1,70 @@
+-- ===================================
+--  RDBチューニングのためのサンプルクエリ
+-- ===================================
+-- APIから叩いているSQL文まとめ
+-- https://scrapbox.io/dmm-smartcontract/API_%E3%81%8B%E3%82%89%E5%8F%A9%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B_SQL_%E6%96%87%E3%81%BE%E3%81%A8%E3%82%81
+use todo_db;
+
+-- `/user/signup`: [* POST]（サインアップ）
+DESCRIBE SELECT id FROM `users`  WHERE (mail = 'epifaniabaumbach@casper.biz') ORDER BY `users`.`id` ASC LIMIT 1;
+
+DESCRIBE INSERT INTO `users` (`nickname`,`mail`,`ethaddress`,`encrypted_password`,`salt`,`updated_at`,`created_at`) VALUES ('kim','jkcomment@gmail.com','0xCFC47E10deD758F9fbCc4570e52726Feae0a88BF','945228747a1822fb73d8b992dab0a5615a3b8e9ae34d7532761f429b11b9a48c','yGzTN6EG0Q8=','2018-08-28 02:12:40.078328','2018-08-28 02:12:40.078328');
+
+-- `/user/signin`: [* POST]（サインイン）
+DESCRIBE SELECT * FROM `users`  WHERE (mail = 'epifaniabaumbach@casper.biz') ORDER BY `users`.`id` ASC LIMIT 1;
+
+-- `/user/{id}`: [* GET]（ユーザー情報の参照）
+DESCRIBE SELECT id, nickname, mail, ethaddress FROM `users`  WHERE (`users`.`id` = '1') ORDER BY `users`.`id` ASC LIMIT 1;
+
+-- `/user/{id}`: [* PUT]（ユーザー情報の編集）
+DESCRIBE UPDATE `users` SET `ethaddress` = '0xCFC47E10deD758F9fbCc4570e52726Feae0a88BF', `id` = 1, `mail` = 'jkcomment@gmail.com', `nickname` = 'hahaha', `updated_at` = '2018-08-28 02:14:37.71501'  WHERE `users`.`id` = 1;
+
+-- `/user/{id}`: [* DELETE]（ユーザー情報の削除）
+DESCRIBE SELECT id, nickname, mail, ethaddress FROM `users`  WHERE (`users`.`id` = '4') ORDER BY `users`.`id` ASC LIMIT 1;
+
+DESCRIBE DELETE FROM `users`  WHERE `users`.`id` = '4';
+
+-- `/rooms` : [* GET]（ルーム情報全て参照）
+
+DESCRIBE SELECT id, owner_id, owner_address, title, description, event_code, is_private, wei_balance, active FROM `rooms`;
+
+-- /room` [* : POST]（ルーム情報を新規作成）
+DESCRIBE SELECT * FROM `rooms`  WHERE (event_code = 'SQUP') ORDER BY `rooms`.`id` ASC LIMIT 1;
+
+DESCRIBE INSERT INTO `rooms` (`owner_id`,`owner_address`,`title`,`description`,`event_code`,`address`,`create_tx_hash`,`is_private`,`wei_balance`,`start_time`,`end_time`,`active`,`updated_at`,`created_at`) VALUES ('3','','bbb','','4KSU','','','false','0',NULL,NULL,'false','2018-08-28 10:42:16','2018-08-28 10:42:16');
+
+-- `/room/{id}` [* : GET]（RoomID のルーム情報を参照）
+DESCRIBE SELECT id, owner_id, owner_address, title, description, event_code, is_private, wei_balance, active FROM `rooms`  WHERE (`rooms`.`id` = '1') ORDER BY `rooms`.`id` ASC LIMIT 1;
+
+-- `/room/{id}` [* : PUT]（RoomID のルーム情報を編集）
+DESCRIBE UPDATE `rooms` SET `description` = 'testa', `event_code` = 'TEA6', `id` = '5', `owner_id` = '3', `title` = 'abbaaa', `updated_at` = '2018-08-28 12:00:11'  WHERE `rooms`.`id` = '5';
+
+-- `/room/{id}` [* : DELETE]（RoomID のルーム情報を削除）
+DESCRIBE SELECT id, owner_id, owner_address, title, description, event_code, is_private, wei_balance, active FROM `rooms`  WHERE (`rooms`.`id` = '20') ORDER BY `rooms`.`id` ASC LIMIT 1;
+
+DESCRIBE DELETE FROM `rooms`  WHERE `rooms`.`id` = '20';
+
+-- `/room/{id}/questions` [* : GET]（RoomID のルームに投稿されている全ての質問を参照）
+DESCRIBE SELECT id, room_id, address, owner_id, body, adopted FROM `questions`  WHERE (room_id = '1');
+
+-- `/room/{id}/question` [* : POST]（RoomID のルームに質問を投稿する）
+DESCRIBE INSERT INTO `questions` (`room_id`,`address`,`owner_id`,`body`,`adopted`,`updated_at`,`created_at`) VALUES ('3','0xCFC57E13deD758F9fbCc4570e52726Feae0a88BF','1','やほ!!!','false','2018-08-28 12:07:06','2018-08-28 12:07:06');
+
+-- `question/{id}` [* : GET]（QuestionID の質問を参照）
+DESCRIBE SELECT id, room_id, address, owner_id, body, adopted FROM `questions`  WHERE (`questions`.`id` = '1') ORDER BY `questions`.`id` ASC LIMIT 1;
+
+-- `question/{id}` [* : PUT]（QuestionID の質問を編集）
+DESCRIBE SELECT id, room_id, address, owner_id, body, adopted FROM `questions`  WHERE (`questions`.`id` = '7') ORDER BY `questions`.`id` ASC LIMIT 1;
+
+DESCRIBE UPDATE `questions` SET `address` = '0xCFC57E13deD758F9fbCc4570e52726Feae0a88BF', `adopted` = 'true', `body` = 'やっほー!!!', `id` = '7', `owner_id` = '3', `room_id` = '1', `updated_at` = '2018-08-28 12:09:21'  WHERE `questions`.`id` = '7';
+
+-- `question/{id}/adopt` [* : PUT]（QuestionID の質問を採用・不採用する）※ API  なくなるかも...?
+DESCRIBE SELECT * FROM `questions`  WHERE (`questions`.`id` = '1') ORDER BY `questions`.`id` ASC LIMIT 1;
+
+DESCRIBE UPDATE `questions` SET `adopted` = 1, `updated_at` = '2018-08-28 03:10:26.469515'  WHERE `questions`.`id` = 1;
+
+-- `question/{id}` [* : DELETE]（QuestionID の質問を削除）
+DESCRIBE SELECT id, room_id, address, owner_id, body, adopted FROM `questions`  WHERE (`questions`.`id` = '10') ORDER BY `questions`.`id` ASC LIMIT 1;
+
+DESCRIBE DELETE FROM `questions`  WHERE `questions`.`id` = '10';
+
