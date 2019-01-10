@@ -1,0 +1,1 @@
+myContract.methods.myMethod(123).send({ from: userAccount })

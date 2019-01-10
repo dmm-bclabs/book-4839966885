@@ -1,0 +1,2 @@
+myZombie.winCount++;
+enemyZombie.lossCount++;
