@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: private-net
+  namespace: default
+  labels:
+    app: private-net
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: private-net
+  template:
+    metadata:
+      labels:
+        app: private-net
+    spec:
+      containers:
+      - name: private-net
+        image: {リポジトリ名全体を貼り付ける}:1.0
+        imagePullPolicy: Always
+        ports:
+        - name: rpc
+          containerPort: 8545
+        - name: ws
+          containerPort: 8546
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: private-net
+    namespace: default
+    labels:
+        app: private-net
+spec:
+    type: NodePort
+    ports:
+    - name: rpc
+      port: 8545
+      nodePort: 30045
+    - name: ws
+      port: 8546
+      nodePort: 30046
+    selector:
+        app: private-net

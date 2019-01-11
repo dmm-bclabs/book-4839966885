@@ -1,0 +1,1 @@
+gcloud components install kubectl
