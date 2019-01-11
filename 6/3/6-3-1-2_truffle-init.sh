@@ -1,0 +1,2 @@
+cd myproject
+truffle init
