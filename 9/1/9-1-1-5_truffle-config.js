@@ -1,6 +1,6 @@
-const HDWalletProvider = require('truffle-hdwallet-provider');
-const mnemonic = $MNEMONIC;
-const projectId = $INFURA_PROJECT_ID;
+const HDWalletProvider = require('truffle-hdwallet-provider')
+const mnemonic = $MNEMONIC
+const projectId = $INFURA_PROJECT_ID
 
 module.exports = {
     networks: {
@@ -26,4 +26,4 @@ module.exports = {
             gas: 4700000
         }
     }
-};
+}
