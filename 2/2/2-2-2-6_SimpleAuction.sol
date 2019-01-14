@@ -1,4 +1,4 @@
-pragma solidity >=0.4.21 <0.6.0;
+pragma solidity >=0.4.24 <0.6.0;
 
 contract SimpleAuction {
     event HighestBidIncreased(address bidder, uint amount); // イベントの宣言
