@@ -7,6 +7,8 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
+	"github.com/swaggo/http-swagger"
+	_ "github.com/dmm-bclabs/book-4839966885/8/6/api/docs"
 	resp "github.com/nicklaw5/go-respond"
 )
 
@@ -31,6 +33,9 @@ type (
 	rooms []room
 )
 
+// API Documents
+// @title Sample API
+// @version 1.0.0
 func main() {
 	log.Println("Starting API Server!!")
 
@@ -42,7 +47,7 @@ func main() {
 	// @Tags Room
 	// @Accept json
 	// @Summary ルーム情報を取得します
-	// @Success 200 {array} []room
+	// @Success 200 {array} room
 	// @Router /rooms [get]
 	router.Get("/rooms", func(w http.ResponseWriter, r *http.Request) {
 		rooms := []room{}
@@ -50,6 +55,8 @@ func main() {
 
 		resp.NewResponse(w).Ok(rooms)
 	})
+
+	router.Get("/swagger/*", httpSwagger.WrapHandler)
 
 	http.ListenAndServe(":8080", router)
 }
