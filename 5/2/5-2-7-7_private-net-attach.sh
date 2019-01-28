@@ -1,1 +1,1 @@
-geth attach http://35.221.181.42:30045
+geth attach http://{REPLACE_YOUR_NODE_IP}:30045
