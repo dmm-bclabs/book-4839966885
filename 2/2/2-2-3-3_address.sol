@@ -6,12 +6,12 @@ contract Address {
     }
 
     function transferToSender() payable public {
-        address payable to = msg.sender;
+        address to = msg.sender;
         to.transfer(address(this).balance);
     }
     
     function getSenderBalance() view public returns(uint) {
-        address payable to = msg.sender;
+        address to = msg.sender;
         return to.balance;
     }
 }

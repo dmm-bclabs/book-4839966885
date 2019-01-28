@@ -1,4 +1,4 @@
 function _createZombie(string _name, uint _dna) private {
      uint id = zombies.push(Zombie(_name, _dna)) - 1;
-     NewZombie(id, _name, _dna); //※event発行について
+     NewZombie(id, _name, _dna); //※event発行
 }
