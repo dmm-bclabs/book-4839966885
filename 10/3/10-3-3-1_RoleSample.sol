@@ -11,14 +11,14 @@ contract RoleSample is RBAC {
         checkRole(msg.sender, ROLE_ADMIN);
         _;
     }
-    
+
     constructor() public {
         addRole(msg.sender, ROLE_ADMIN);
     }
-    
+
     function addMember(address addr) onlyAdmin public {
         addRole(addr, ROLE_MEMBER);
     }
-    
+
     // ...
 }
