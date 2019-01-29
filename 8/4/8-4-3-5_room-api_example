@@ -1,0 +1,31 @@
+type (
+    room struct {
+        ID           uint64         `json:"id"`
+        OwnerID      uint64         `json:"owner_id"`
+        OwnerAddress string         `json:"owner_address"`
+        Title        string         `json:"title"`
+        Description  string         `json:"description"`
+        EventCode    string         `json:"event_code"`
+        Address      string         `json:"address"`
+        CreateTxHash string         `json:"create_tx_hash"`
+        IsPrivate    bool           `json:"is_private"`
+        WeiBalance   uint64         `json:"wei_balance"`
+        WeiPrize     uint64         `json:"wei_prize"`
+        StartTime    mysql.NullTime `json:"start_time"`
+        EndTime      mysql.NullTime `json:"end_time"`
+        Active       bool           `json:"active"`
+    }
+    rooms []room
+) // 1
+
+func main() {
+    ...
+    router.Get("/rooms", func(w http.ResponseWriter, r *http.Request) {
+        rooms := []room{}
+        db.Find(&rooms) // 2
+
+        resp.NewResponse(w).Ok(rooms) // 3
+    })
+
+    http.ListenAndServe(":8080", router)
+}
