@@ -1,1 +1,1 @@
-git add truffle.js
+git add truffle-config.js
