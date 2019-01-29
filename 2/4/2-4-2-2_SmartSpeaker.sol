@@ -9,7 +9,7 @@ contract SmartSpeaker {
         response = "";
     }
 
-    function listen(uint _number) public returns(string memory) {
+    function listen(uint _number) public returns (string memory) {
         if (_number <= 100) {
             response = "small!";
         } else if (_number <= 1000) {
