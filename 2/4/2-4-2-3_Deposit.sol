@@ -15,7 +15,7 @@ contract Deposit {
         emit LogDeposit(now);
     }
 
-    function getBalance() public view returns (uint) {
+    function getBalance() public view returns(uint) {
         return address(this).balance;
     }
 }
