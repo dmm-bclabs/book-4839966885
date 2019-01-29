@@ -1,1 +1,1 @@
-myContract.methods.myMethod(123).call()
+myContract.methods.myMethod(123).call();
