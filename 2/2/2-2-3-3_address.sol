@@ -1,4 +1,5 @@
-pragma solidity >=0.4.24 <0.6.0;
+pragma solidity ^0.4.24;
+//コンパイラのバージョンが0.4.24,25,26に限定されていることに注意してください
 
 contract Address {
 
