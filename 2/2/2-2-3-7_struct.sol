@@ -9,7 +9,7 @@ contract Strcut {
     
     Author[] public authors;
      
-    constructor () public {
+    constructor() public {
     }
 
     function getAuthor() public returns (address, string memory) {

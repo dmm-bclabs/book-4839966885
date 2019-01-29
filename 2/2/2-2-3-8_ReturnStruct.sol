@@ -10,7 +10,7 @@ contract ReturnStruct {
 
     Author[] public authors;
 
-    constructor () public {
+    constructor() public {
     }
 
     function getAuthor() public returns (Author memory) {

@@ -1,1 +1,1 @@
-function levelUp () external payable { ... }
+function levelUp() external payable { ... }
