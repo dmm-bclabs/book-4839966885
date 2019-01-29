@@ -1,0 +1,8 @@
+// @Tags Room
+// @Accept json
+// @Summary ルーム情報を取得します
+// @Success 200 {array} []room
+// @Router /rooms [get]
+router.Get("/rooms", func(w http.ResponseWriter, r *http.Request) {
+    ...
+}

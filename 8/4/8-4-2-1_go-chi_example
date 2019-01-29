@@ -1,0 +1,6 @@
+router := chi.NewRouter()
+
+// /root にアクセスがあったら、文字列の root を返す
+router.Get("/root", func(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte("root"))
+})

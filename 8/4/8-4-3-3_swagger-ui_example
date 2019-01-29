@@ -1,0 +1,19 @@
+import (
+	"net/http"
+
+	"github.com/go-chi/chi"
+	"github.com/swaggo/http-swagger"
+	_ "github.com/sample/project/docs" // swag init で生成されたファイルのパスを指定してください
+)
+
+// main.goファイルに API の概要を記載します
+// API Documents
+// @title Sample API
+// @version 1.0.0
+func main() {
+    router := chi.NewRouter()
+
+    // Swaggerのルーティングを設定
+    router.Get("/swagger/*", httpSwagger.WrapHandler)
+    http.ListenAndServe(":8080", router)
+}
