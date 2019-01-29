@@ -8,13 +8,15 @@
 
 下記の章で掲載したサンプルコードをダウンロードできます。
 
- - Chapter2　Solidityによるスマートコントラクト開発
- - Chapter4　DApps開発環境の構築
- - Chapter5　開発用ブロックチェーンの構築
- - Chapter6　スマートコントラクトの設計
- - Chapter7　テスト手法と自動化
- - Chapter8　Webアプリケーションの実装
- - Chapter9　テストネットへのデプロイと監査
- - Chapter10　発展的なDApps開発
+ - Chapter 2　Solidityによるスマートコントラクト開発
+ - Chapter 4　DApps開発環境の構築
+ - Chapter 5　開発用ブロックチェーンの構築
+ - Chapter 6　スマートコントラクトの設計
+ - Chapter 7　テスト手法と自動化
+ - Chapter 8　Webアプリケーションの実装
+ - Chapter 9　テストネットへのデプロイと監査
+ - Chapter 10　発展的なDApps開発
 
 ※ 本書に記載されている内容や本ダウンロードデータの運用によって、いかなる損害が生じても、株式会社マイナビ出版および著者は責任を負いかねますので、あらかじめご了承ください。
+
+(c) 2019 Nagato Kasaki, Wataru Shinohara, Jikyung Kim, Noriaki Kawanishi, Katsunori Tanaka, Hiroaki Sasaki, Koji Hirano, Akira Maegawa, Hecula, inc., 
