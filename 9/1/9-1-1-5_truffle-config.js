@@ -1,6 +1,6 @@
-const HDWalletProvider = require('truffle-hdwallet-provider')
-const mnemonic = $MNEMONIC
-const projectId = $INFURA_PROJECT_ID
+const HDWalletProvider = require('truffle-hdwallet-provider')   // ①
+const mnemonic = $MNEMONIC  // ②
+const projectId = $INFURA_PROJECT_ID    // ③
 
 module.exports = {
     networks: {
@@ -22,7 +22,7 @@ module.exports = {
                     `https://ropsten.infura.io/v3/${projectId}`
                 );
             },
-            network_id: 3,
+            network_id: 3,  // ④
             gas: 4700000
         }
     }
