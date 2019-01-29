@@ -11,9 +11,9 @@ const should = require('chai')
     .use(require('chai-bignumber')(BigNumber))
     .should()
 
-// ④
 const RoomFactory = artifacts.require('./RoomFactory.sol')
 
+// ④
 contract('RoomFactory', ([factoryOwner, roomOwner1, roomOwner2, roomOwner3, ...accounts]) => {
 
     describe('as an instance', () => {
