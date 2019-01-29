@@ -7,7 +7,7 @@ import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 contract Room is Destructible, Pausable {
 
     // ②
-    mapping (uint256 => bool) public rewardSent;
+    mapping(uint256 => bool) public rewardSent;
 
     // ③
     event Deposited(
