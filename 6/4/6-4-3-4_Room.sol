@@ -7,7 +7,7 @@ import "./Activatable.sol"; // ①
 // ②
 contract Room is Destructible, Pausable, Activatable {
 
-    mapping (uint256 => bool) public rewardSent;
+    mapping(uint256 => bool) public rewardSent;
 
     event Deposited(
         address indexed _depositor,
