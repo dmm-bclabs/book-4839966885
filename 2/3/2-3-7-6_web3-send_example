@@ -1,1 +1,1 @@
-var userAccount = web3.eth.accounts[0]
+myContract.methods.myMethod(123).send({ from: userAccount });
