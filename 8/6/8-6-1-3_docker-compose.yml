@@ -1,0 +1,21 @@
+services:
+  mysql:
+    container_name: test_db
+    ports:
+      - "3306:3306"
+    ...
+  api:
+    container_name: test_api
+    ports:
+      - "8080:8080"
+    ...
+  event:
+    container_name: test_event
+    ports:
+      - "8081:8081"
+    ...
+  frontend:
+    container_name: test_frontend
+    ports:
+      - "3000:3000"
+    ...
