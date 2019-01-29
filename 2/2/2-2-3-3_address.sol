@@ -10,8 +10,8 @@ contract Address {
         address to = msg.sender;
         to.transfer(address(this).balance);
     }
-    
-    function getSenderBalance() view public returns(uint) {
+
+    function getSenderBalance() view public returns (uint) {
         address to = msg.sender;
         return to.balance;
     }
